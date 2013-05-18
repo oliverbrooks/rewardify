@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Image:
+  = image_tag @offer.image, width: "100px"
+%p
+  %b Name:
+  = @offer.name
+%p
+  %b Description:
+  = @offer.description
+%p
+  %b Link:
+  = @offer.link
+
+= link_to 'Edit', edit_offer_path(@offer)
+\|
+= link_to 'Back', offers_path

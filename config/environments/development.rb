@@ -51,4 +51,10 @@ Rewardify::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  
+  # Setup env variables from config/config.yml
+  env_vars = YAML.load_file(File.join(config.root, "config", "config.yml"))
+  env_vars.each do |key, value|
+    ENV[key] = value
+  end
 end
