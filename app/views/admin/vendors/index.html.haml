@@ -1,0 +1,19 @@
+%h1 Listing vendors
+
+%table.table
+  %tr
+
+    %th Name
+    %th
+
+  - @vendors.each do |vendor|
+    %tr
+      %td= link_to vendor.name, [:admin, vendor]
+      %td
+        = link_to "Offers", admin_vendor_offers_path(vendor)
+        = link_to 'Edit', edit_admin_vendor_path(vendor)
+        = link_to 'Destroy', [:admin, vendor], :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Vendor', new_admin_vendor_path

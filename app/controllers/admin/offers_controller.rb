@@ -1,4 +1,4 @@
-class OffersController < ApplicationController
+class Admin::OffersController < ApplicationController
 
   before_filter :set_vendor
 

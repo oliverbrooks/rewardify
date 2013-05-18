@@ -1,4 +1,4 @@
-class PurchasesController < ApplicationController
+class Admin::PurchasesController < ApplicationController
 
   before_filter :set_vendor
 

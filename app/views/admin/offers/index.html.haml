@@ -1,0 +1,24 @@
+%h1 #{link_to @vendor, [:admin, @vendor]} offers
+
+%table.table
+  %tr
+    %th Image
+    %th Name
+    %th Description
+    %th Link
+    %th
+
+  - @offers.each do |offer|
+    %tr
+      %td= image_tag offer.image, width: "100px"
+      %td= offer.name
+      %td= offer.description
+      %td= offer.link
+      %td
+        = link_to 'Show', [:admin, @vendor, offer]
+        = link_to 'Edit', edit_admin_vendor_offer_path(@vendor, offer)
+        = link_to 'Destroy', [:admin, @vendor, offer], :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Offer', new_admin_vendor_offer_path(@vendor)
