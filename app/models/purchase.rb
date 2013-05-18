@@ -9,7 +9,7 @@ class Purchase < ActiveRecord::Base
 
   delegate :phone, :points, to: :user
 
-  before_save :generate_access_token
+  before_create :generate_access_token
 
   def generate_access_token
     self.access_token = SecureRandom.hex[0..10]

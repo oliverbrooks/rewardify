@@ -1,4 +1,4 @@
-class Admin::UsersController < BaseController
+class Admin::UsersController < Admin::BaseController
 
   before_filter :set_vendor
 

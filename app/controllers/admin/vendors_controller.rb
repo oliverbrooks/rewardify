@@ -1,4 +1,4 @@
-class Admin::VendorsController < BaseController
+class Admin::VendorsController < Admin::BaseController
   # GET /vendors
   # GET /vendors.json
   def index

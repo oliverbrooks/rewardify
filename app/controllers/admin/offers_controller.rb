@@ -1,4 +1,4 @@
-class Admin::OffersController < BaseController
+class Admin::OffersController < Admin::BaseController
 
   before_filter :set_vendor
 

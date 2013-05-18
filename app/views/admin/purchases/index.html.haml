@@ -7,6 +7,7 @@
     %th User total
     %th Value
     %th Awarded Points
+    %th Access token
     %th
 
   - @purchases.each do |purchase|
@@ -15,6 +16,7 @@
       %td= purchase.points
       %td= purchase.value
       %td= purchase.awarded_value
+      %td= text_field_tag :play_url, play_url(t: purchase.access_token)
       %td
         = link_to "edit", edit_admin_vendor_purchase_path(@vendor, purchase)
 

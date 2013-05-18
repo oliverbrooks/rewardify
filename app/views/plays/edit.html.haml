@@ -1,0 +1,5 @@
+Play the game - win the prizes
+
+= simple_form_for @purchase, url: play_path(t: @purchase.access_token) do |f|
+
+  = f.submit "Play!", class: "btn"

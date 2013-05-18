@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130518183916) do
+ActiveRecord::Schema.define(:version => 20130518212432) do
 
   create_table "offers", :force => true do |t|
     t.string   "image"
@@ -31,13 +31,15 @@ ActiveRecord::Schema.define(:version => 20130518183916) do
     t.text     "notes"
     t.integer  "user_id"
     t.integer  "vendor_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.integer  "offer_id"
     t.string   "access_token"
     t.integer  "awarded_value"
+    t.boolean  "played",        :default => false
   end
 
+  add_index "purchases", ["access_token"], :name => "index_purchases_on_access_token"
   add_index "purchases", ["offer_id"], :name => "index_purchases_on_offer_id"
   add_index "purchases", ["user_id"], :name => "index_purchases_on_user_id"
   add_index "purchases", ["vendor_id"], :name => "index_purchases_on_vendor_id"
