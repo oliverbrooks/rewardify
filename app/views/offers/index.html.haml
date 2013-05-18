@@ -1,13 +1,11 @@
-%h1 Listing offers
+%h1 #{link_to @vendor, vendor_path(@vendor)} offers
 
-%table
+%table.table
   %tr
     %th Image
     %th Name
     %th Description
     %th Link
-    %th
-    %th
     %th
 
   - @offers.each do |offer|
@@ -16,10 +14,11 @@
       %td= offer.name
       %td= offer.description
       %td= offer.link
-      %td= link_to 'Show', offer
-      %td= link_to 'Edit', edit_offer_path(offer)
-      %td= link_to 'Destroy', offer, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td
+        = link_to 'Show', [@vendor, offer]
+        = link_to 'Edit', edit_vendor_offer_path(@vendor, offer)
+        = link_to 'Destroy', [@vendor, offer], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Offer', new_offer_path
+= link_to 'New Offer', new_vendor_offer_path(@vendor)

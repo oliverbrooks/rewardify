@@ -10,11 +10,11 @@ group :assets do
 end
 
 gem "haml-rails", ">= 0.4"
-gem "html2haml", ">= 1.0.1", :group => :development
+gem "html2haml", ">= 1.0.1"
 gem "bootstrap-sass", ">= 2.3.0.0"
 gem "simple_form", ">= 2.1.0"
 gem "libv8", ">= 3.11.8"
-gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
+gem "hub", ">= 1.10.2", :require => nil
 
 gem 'jquery-rails'
 
@@ -30,6 +30,9 @@ gem "devise", ">= 2.2.3"
 # File attachments
 gem "carrierwave"
 gem "fog"           # File uploads to the cloud
+
+# Twilio client
+gem "twilio-ruby"
 
 gem "rspec-rails", ">= 2.12.2", :group => [:development, :test]
 

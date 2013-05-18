@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130518152452) do
+ActiveRecord::Schema.define(:version => 20130518164753) do
 
   create_table "offers", :force => true do |t|
     t.string   "image"
@@ -20,7 +20,10 @@ ActiveRecord::Schema.define(:version => 20130518152452) do
     t.string   "link"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "vendor_id"
   end
+
+  add_index "offers", ["vendor_id"], :name => "index_offers_on_vendor_id"
 
   create_table "purchases", :force => true do |t|
     t.integer  "value"
@@ -29,8 +32,10 @@ ActiveRecord::Schema.define(:version => 20130518152452) do
     t.integer  "vendor_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "offer_id"
   end
 
+  add_index "purchases", ["offer_id"], :name => "index_purchases_on_offer_id"
   add_index "purchases", ["user_id"], :name => "index_purchases_on_user_id"
   add_index "purchases", ["vendor_id"], :name => "index_purchases_on_vendor_id"
 

@@ -1,8 +1,11 @@
 class OffersController < ApplicationController
+
+  before_filter :set_vendor
+
   # GET /offers
   # GET /offers.json
   def index
-    @offers = Offer.all
+    @offers = @vendor.offers.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +16,7 @@ class OffersController < ApplicationController
   # GET /offers/1
   # GET /offers/1.json
   def show
-    @offer = Offer.find(params[:id])
+    @offer = @vendor.offers.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +27,7 @@ class OffersController < ApplicationController
   # GET /offers/new
   # GET /offers/new.json
   def new
-    @offer = Offer.new
+    @offer = @vendor.offers.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,11 +43,11 @@ class OffersController < ApplicationController
   # POST /offers
   # POST /offers.json
   def create
-    @offer = Offer.new(params[:offer])
+    @offer = @vendor.offers.new(params[:offer])
 
     respond_to do |format|
       if @offer.save
-        format.html { redirect_to @offer, notice: 'Offer was successfully created.' }
+        format.html { redirect_to [@vendor, @offer], notice: 'Offer was successfully created.' }
         format.json { render json: @offer, status: :created, location: @offer }
       else
         format.html { render action: "new" }
@@ -56,11 +59,11 @@ class OffersController < ApplicationController
   # PUT /offers/1
   # PUT /offers/1.json
   def update
-    @offer = Offer.find(params[:id])
+    @offer = @vendor.offers.find(params[:id])
 
     respond_to do |format|
       if @offer.update_attributes(params[:offer])
-        format.html { redirect_to @offer, notice: 'Offer was successfully updated.' }
+        format.html { redirect_to [@vendor, @offer], notice: 'Offer was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -72,12 +75,18 @@ class OffersController < ApplicationController
   # DELETE /offers/1
   # DELETE /offers/1.json
   def destroy
-    @offer = Offer.find(params[:id])
+    @offer = @vendor.offers.find(params[:id])
     @offer.destroy
 
     respond_to do |format|
-      format.html { redirect_to offers_url }
+      format.html { redirect_to [@vendor, Offer] }
       format.json { head :no_content }
     end
   end
+
+  private
+
+    def set_vendor
+      @vendor = Vendor.find(params[:vendor_id])
+    end
 end

@@ -13,6 +13,6 @@
   %b Link:
   = @offer.link
 
-= link_to 'Edit', edit_offer_path(@offer)
+= link_to 'Edit', edit_vendor_offer_path(@vendor, @offer)
 \|
-= link_to 'Back', offers_path
+= link_to 'Back', [@vendor, Offer]

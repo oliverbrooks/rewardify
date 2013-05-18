@@ -4,9 +4,8 @@ Rewardify::Application.routes.draw do
 
   root :to => "home#index"
 
-  resources :offers
-  
   resources :vendors do
+    resources :offers
     resources :purchases
   end
 end
