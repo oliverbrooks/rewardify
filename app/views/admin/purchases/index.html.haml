@@ -4,14 +4,19 @@
   %tr
 
     %th Phone
+    %th User total
     %th Value
-    %th Points
+    %th Awarded Points
+    %th
 
   - @purchases.each do |purchase|
     %tr
-      %td= purchase.user.phone
+      %td= purchase.phone
+      %td= purchase.points
       %td= purchase.value
       %td= purchase.awarded_value
+      %td
+        = link_to "edit", edit_admin_vendor_purchase_path(@vendor, purchase)
 
 %br
 

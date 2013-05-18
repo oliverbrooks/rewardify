@@ -5,5 +5,13 @@ class Purchase < ActiveRecord::Base
   belongs_to :vendor
   belongs_to :offer
 
-  validate :phone, :user, :value, presence: true
+  validate :user, :vendor, :value, :access_token, presence: true
+
+  delegate :phone, :points, to: :user
+
+  before_save :generate_access_token
+
+  def generate_access_token
+    self.access_token = SecureRandom.hex[0..10]
+  end
 end

@@ -1,0 +1,12 @@
+%h1 Users
+
+%table.table
+  %tr
+
+    %th Phone
+
+  - @users.each do |user|
+    %tr
+      %td= user.phone
+      %td
+        = link_to "edit", edit_admin_vendor_user_path(@vendor, user)

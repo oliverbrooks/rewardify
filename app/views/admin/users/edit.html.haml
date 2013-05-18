@@ -1,0 +1,11 @@
+%h1 #{link_to 'Users', [:admin, @vendor, User]}: Edit
+
+= simple_form_for [:admin, @vendor, @user] do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :phone
+    = f.input :points
+
+  .form-actions
+    = f.button :submit

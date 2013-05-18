@@ -5,11 +5,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  # Setup accessible (or protected) attributes for your model
-  # attr_accessible :name, :email, :password, :password_confirmation, :remember_me
-
   has_many :vendors
   has_many :purchases
   has_many :offers, through: :purchases
+
+  def admin?
+    self.id == 1
+  end
   
 end

@@ -8,6 +8,7 @@ Rewardify::Application.routes.draw do
     resources :vendors do
       resources :offers
       resources :purchases
+      resources :users
     end
   end
 end

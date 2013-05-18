@@ -2,6 +2,24 @@ class Admin::PurchasesController < ApplicationController
 
   before_filter :set_vendor
 
+  def update
+    @purchase = @vendor.purchases.find(params[:id])
+
+    respond_to do |format|
+      if @purchase.update_attributes(params[:purchase])
+        format.html { redirect_to [:admin, @vendor, Purchase], notice: 'Vendor was successfully created.' }
+        format.json { render json: @purchase, status: :created, location: @purchase }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @purchase.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def edit
+    @purchase = @vendor.purchases.find(params[:id])
+  end
+
   def create
     @purchase = @vendor.purchases.new(params[:purchase])
 
