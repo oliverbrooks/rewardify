@@ -1,0 +1,9 @@
+= simple_form_for [:admin, @vendor, @purchase] do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :user
+    = f.input :value
+
+  .form-actions
+    = f.button :submit

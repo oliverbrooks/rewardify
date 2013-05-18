@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130518164753) do
+ActiveRecord::Schema.define(:version => 20130518183916) do
 
   create_table "offers", :force => true do |t|
     t.string   "image"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20130518164753) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "vendor_id"
+    t.integer  "value"
   end
 
   add_index "offers", ["vendor_id"], :name => "index_offers_on_vendor_id"
@@ -30,9 +31,11 @@ ActiveRecord::Schema.define(:version => 20130518164753) do
     t.text     "notes"
     t.integer  "user_id"
     t.integer  "vendor_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.integer  "offer_id"
+    t.string   "access_token"
+    t.integer  "awarded_value"
   end
 
   add_index "purchases", ["offer_id"], :name => "index_purchases_on_offer_id"
@@ -54,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20130518164753) do
     t.datetime "updated_at",                             :null => false
     t.string   "name"
     t.string   "phone"
+    t.integer  "points"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

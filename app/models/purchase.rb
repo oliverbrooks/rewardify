@@ -4,4 +4,6 @@ class Purchase < ActiveRecord::Base
   belongs_to :user
   belongs_to :vendor
   belongs_to :offer
+
+  validate :phone, :user, :value, presence: true
 end

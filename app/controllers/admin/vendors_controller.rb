@@ -44,7 +44,7 @@ class Admin::VendorsController < ApplicationController
 
     respond_to do |format|
       if @vendor.save
-        format.html { redirect_to @vendor, notice: 'Vendor was successfully created.' }
+        format.html { redirect_to [:admin, @vendor], notice: 'Vendor was successfully created.' }
         format.json { render json: @vendor, status: :created, location: @vendor }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class Admin::VendorsController < ApplicationController
 
     respond_to do |format|
       if @vendor.update_attributes(params[:vendor])
-        format.html { redirect_to @vendor, notice: 'Vendor was successfully updated.' }
+        format.html { redirect_to [:admin, @vendor], notice: 'Vendor was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

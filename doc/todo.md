@@ -6,7 +6,7 @@ Models
 
 Database
 
-* Setup 
+* Setup points
 
 Prize page
 

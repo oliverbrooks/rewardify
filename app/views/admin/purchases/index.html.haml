@@ -1,0 +1,18 @@
+%h1 Listing Purchases
+
+%table.table
+  %tr
+
+    %th Phone
+    %th Value
+    %th Points
+
+  - @purchases.each do |purchase|
+    %tr
+      %td= purchase.user.phone
+      %td= purchase.value
+      %td= purchase.awarded_value
+
+%br
+
+= link_to 'New Purchase', new_admin_vendor_purchase_path(@vendor)

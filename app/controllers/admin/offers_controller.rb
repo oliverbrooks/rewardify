@@ -47,7 +47,7 @@ class Admin::OffersController < ApplicationController
 
     respond_to do |format|
       if @offer.save
-        format.html { redirect_to [@vendor, @offer], notice: 'Offer was successfully created.' }
+        format.html { redirect_to [:admin, @vendor, @offer], notice: 'Offer was successfully created.' }
         format.json { render json: @offer, status: :created, location: @offer }
       else
         format.html { render action: "new" }
@@ -63,7 +63,7 @@ class Admin::OffersController < ApplicationController
 
     respond_to do |format|
       if @offer.update_attributes(params[:offer])
-        format.html { redirect_to [@vendor, @offer], notice: 'Offer was successfully updated.' }
+        format.html { redirect_to [:admin, @vendor, @offer], notice: 'Offer was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -79,7 +79,7 @@ class Admin::OffersController < ApplicationController
     @offer.destroy
 
     respond_to do |format|
-      format.html { redirect_to [@vendor, Offer] }
+      format.html { redirect_to [:admin, @vendor, Offer] }
       format.json { head :no_content }
     end
   end
