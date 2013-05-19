@@ -8,7 +8,7 @@ Rewardify::Application.routes.draw do
   put 'play'   => 'plays#update'
   get 'played' => 'plays#show'
 
-  resources :vendors, only: [:index]
+  resources :vendors, only: [:show]
 
   namespace :admin do
     resources :vendors do
