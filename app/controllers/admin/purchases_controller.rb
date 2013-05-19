@@ -7,7 +7,7 @@ class Admin::PurchasesController < Admin::BaseController
 
     respond_to do |format|
       if @purchase.update_attributes(params[:purchase])
-        format.html { redirect_to [:admin, @vendor, Purchase], notice: 'Vendor was successfully created.' }
+        format.html { redirect_to [:admin, @vendor, Purchase], notice: 'Message was sent.' }
         format.json { render json: @purchase, status: :created, location: @purchase }
       else
         format.html { render action: "new" }
@@ -25,7 +25,7 @@ class Admin::PurchasesController < Admin::BaseController
 
     respond_to do |format|
       if @purchase.save
-        format.html { redirect_to [:admin, @vendor, Purchase], notice: 'Vendor was successfully created.' }
+        format.html { redirect_to [:admin, @vendor, Purchase], notice: 'Purchase was successfully created.' }
         format.json { render json: @purchase, status: :created, location: @purchase }
       else
         format.html { render action: "new" }
@@ -39,7 +39,7 @@ class Admin::PurchasesController < Admin::BaseController
   end
 
   def index
-    @purchases = @vendor.purchases.all
+    @purchases = @vendor.purchases.order('created_at DESC')
   end
 
   private

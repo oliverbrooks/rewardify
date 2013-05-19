@@ -4,9 +4,11 @@ Rewardify::Application.routes.draw do
 
   root :to => "home#index"
 
-  get 'play' => 'plays#edit'
+  get 'play'   => 'plays#edit'
+  put 'play'   => 'plays#update'
   get 'played' => 'plays#show'
-  put 'play' => 'plays#update'
+
+  resources :vendors, only: [:index]
 
   namespace :admin do
     resources :vendors do

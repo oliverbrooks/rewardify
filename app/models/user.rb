@@ -12,5 +12,12 @@ class User < ActiveRecord::Base
   def admin?
     self.id == 1
   end
+
+  def points_for(vendor)
+    played = purchases.where(played: true, vendor: vendor).sum(:awarded_value)
+    unplayed = purchases.where(played: false, vendor: vendor).sum(:value)
+
+    played + unplayed
+  end
   
 end

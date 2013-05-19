@@ -1,4 +1,4 @@
-%h1 Listing Purchases
+%h1 #{link_to @vendor.name, [:admin, @vendor]}: Purchases
 
 %table.table
   %tr
@@ -8,6 +8,7 @@
     %th Value
     %th Awarded Points
     %th Access token
+    %th Played?
     %th
 
   - @purchases.each do |purchase|
@@ -17,8 +18,12 @@
       %td= purchase.value
       %td= purchase.awarded_value
       %td= text_field_tag :play_url, play_url(t: purchase.access_token)
+      %td= purchase.played? ? content_tag(:i, "", class: "icon-ok").html_safe : content_tag(:i, "", class: "icon-remove").html_safe
       %td
-        = link_to "edit", edit_admin_vendor_purchase_path(@vendor, purchase)
+        =# link_to "edit", edit_admin_vendor_purchase_path(@vendor, purchase)
+        = simple_form_for [:admin, @vendor, purchase] do |f|
+          = f.text_area :send_sms, value: play_game_message(purchase),  class: "text_area_short"
+          = f.submit 'Send SMS', class: 'btn btn-primary'
 
 %br
 

@@ -18,7 +18,7 @@ class PlaysController < ApplicationController
   private
 
     def set_access_token
-      @purchase = Purchase.where(access_token: params[:t]).first
+      @purchase = Purchase.where(played: false, access_token: params[:t]).first
 
       unless @purchase.present?
         redirect_to root_url, notice: "Sorry, we couldn't find that prize code"

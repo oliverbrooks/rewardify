@@ -15,16 +15,12 @@ class Purchase < ActiveRecord::Base
     self.access_token = SecureRandom.hex[0..10]
   end
 
-  def send_offer_message
-    TWILIO_CLIENT.account.sms.messages.create(from: ENV['TWILIO_NUMBER'], to: phone, body: play_game_message)
+  def send_sms=(message)
+    TWILIO_CLIENT.account.sms.messages.create(from: ENV['TWILIO_NUMBER'], to: phone, body: message)
   end
 
-  def play_game_message
-    "You've been awarded #{value} points. Click this link for a chance to double your points #{play_game_link}"
-  end
-
-  def play_game_link
-    Rails.application.routes.url_helpers.play_url(t: access_token)
+  def send_sms
+    false
   end
 
 end

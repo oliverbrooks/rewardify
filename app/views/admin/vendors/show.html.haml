@@ -1,11 +1,13 @@
-%p#notice= notice
-%p
-  %b Name:
-  = @vendor.name
-%p
-  %b Description:
-  = @vendor.description
+%h1 #{link_to("Vendors", [:admin, Vendor])}: #{@vendor.name}
 
-= link_to 'Edit', edit_admin_vendor_path(@vendor)
-\|
-= link_to 'Back', [:admin, Vendor]
+%p#notice= notice
+
+
+= @vendor.description
+
+
+%ul.nav.nav-pills
+  %li= link_to "Offers", [:admin, @vendor, Offer]
+  %li= link_to "User", [:admin, @vendor, User]
+  %li= link_to "Purchase", [:admin, @vendor, Purchase]
+  %li= link_to 'Edit', edit_admin_vendor_path(@vendor)
