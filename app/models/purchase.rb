@@ -1,7 +1,6 @@
 class Purchase < ActiveRecord::Base
   belongs_to :user
   belongs_to :vendor
-  belongs_to :offer
 
   scope :pending, -> { where(played: false) }
 
@@ -16,27 +15,31 @@ class Purchase < ActiveRecord::Base
     self.access_token = SecureRandom.hex[0..10]
   end
 
-  def generate_awarded_points
-    # random number = rand(0..200).to_f / 100 * value
-    # awarded_value = random_number.ceil
+  def offer
+    self.vendor.offers.first
+  end
 
+  def generate_awarded_points
+    self.awarded_value = (award_scaler.to_f / 100 * offer.value).ceil
+  end
+
+  def award_scaler
   
     percentage_win = case rand(1..100)
-    when 1..5
+    when 1..3
       0
-    when 6..20
+    when 4..20
       10
     when 21..50
+      30
+    when 51..70
       50
-    when 70..95
+    when 71..95
       70
     when 96..100 #jackpot!
       100
     end
-
-    awarded_value = percentage_win / 100 * offer.value
-
-   
+    
   end
 
   def winner?

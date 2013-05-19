@@ -16,4 +16,4 @@ user2 = User.find_or_create_by_email! name: "Ted", :email => 'ted@test.com', :pa
 vendor = Vendor.create(description: "The strongest coffee on earth", name: "Mega Coffee Shop", user: User.first)
 
 image = File.open( File.expand_path('db/fixtures/coffee.jpg', Rails.root) )
-offer = vendor.offers.create(image: image, name: "The mega Cup", description: "The biggest cup of coffee in the world")
+offer = vendor.offers.create(image: image, name: "The mega Cup", description: "The biggest cup of coffee in the world", value: 100)
