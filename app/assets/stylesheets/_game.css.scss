@@ -1,0 +1,137 @@
+
+div.main_body {
+  /*background: #f2f7b7;*/
+  width: 480px;
+  height: 755px; 
+  p {
+    font-size: 20px;
+    text-align: center;
+    margin: 25px;
+    line-height: 30px;
+    font-weight: bold;
+    color: white;
+  }
+}
+
+/*div.header {
+  background: #5c0700;
+  background-image: url('images/logo-small.png');
+  background-repeat: no-repeat;
+  background-position: left;
+  padding-top: 15px;
+  height: 70px;
+  color: white;
+  font-size: 40px;
+  text-align: center;
+  font-family: calibri;
+}
+*/
+span.points {
+  font-size: 2em;
+}
+
+div.points_meter, div.points_balance {
+  float: left;
+  width: 40px;
+}
+
+div.points_meter {
+  position: relative;
+  height: 530px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 15px; 
+}
+
+div.points_balance {
+  position: absolute;
+  bottom: 0px;
+  background: red; 
+  border-radius: 0px 0px 12px 12px;
+  transition: all .5s ease;
+}
+
+div.game_holder {
+  float: right;
+}
+
+div.game_meter_group {
+  width: 90%;
+  margin: auto;
+  margin-top: 35px;
+}
+
+div.instruction, div.game {
+  width: 370px; 
+  text-align: center;
+  height: 50px;
+}
+
+
+div.instruction {
+  font-size: 20px;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+}
+
+div.game {
+  position: relative;
+  height: 460px;
+  /*background: DeepSkyBlue;*/
+}
+
+
+#time_left {
+  font-weight: bold;
+}
+
+img.grass1, img.grass2, img.grass3, img.grass4, img.grass5, img.grass6 {
+  position: absolute;
+  width: 100px;
+}
+
+img.worm {
+  position: absolute;
+  width: 80px;
+  top: 5px;
+  left: 25px;
+  display: block;
+}
+
+img.worm_hidden {
+  display: none;
+}
+
+img.grass1 {
+  top: 30px;
+  left: 15px;
+}
+
+img.grass2 {
+  top: 50px;
+  right: 30px;
+}
+
+img.grass3 {
+  top: 100px;
+  left: 100px;
+}
+
+img.grass4 {
+ bottom: 150px;
+ left: 110px;
+}
+
+img.grass5 {
+  top: 300px;
+  left: 200px;
+}
+
+img.grass6{
+  bottom: 0px;
+  left: 15px;
+}
+
+

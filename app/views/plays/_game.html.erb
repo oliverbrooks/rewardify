@@ -1,0 +1,31 @@
+
+<div class="main_body">
+  <p>
+    You have earned <strong><%= purchase.value %></strong> new points.<br/>
+    Play now to earn bonus points!
+  </p>
+  <div class="game_meter_group">
+    <div class="points_meter">
+      <div id="points_balance" class="points_balance" onclick="dummy()">&nbsp;</div>
+    </div>
+    <div class="game_holder">
+      <div class="instruction">
+        Find the worm to earn points<br/>
+        Time left: <span id="time_left">&nbsp;</span>
+      </div>
+      <div class="game">
+        <img id="worm-character" class="worm" src="assets/worm.png" onclick="moveWorm()" />
+        <img class="grass1" src="assets/grass.png" />
+        <img class="grass2" src="assets/grass.png" />
+        <!--<img class="grass3" src="assets/grass.png" />-->
+        <img class="grass4" src="assets/grass.png" />
+        <img class="grass5" src="assets/grass.png" />
+        <img class="grass6" src="assets/grass.png" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dialog">
+
+</div>

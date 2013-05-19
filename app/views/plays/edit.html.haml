@@ -1,5 +1,15 @@
-#h1 Play the game - win the prizes
+- content_for :head do
+  :javascript
+    $('document').ready( function(){
+      setMaxPoints( #{@purchase.offer.value});
+      setPoints( #{current_user.points_for(@purchase.vendor)} );
+      setTimeLimit( 15 );
+      updatePointsBar()    
+      
+    })
 
-= simple_form_for @purchase, url: play_path(t: @purchase.access_token) do |f|
+= render 'game', purchase: @purchase
 
-  = f.submit "Play!", class: "btn"
+= simple_form_for @purchase, url: play_path(t: @purchase.access_token), html: {id: "finish"} do |f|
+  
+  =# f.submit "Play!", class: "btn"
