@@ -1,4 +1,21 @@
-You won!
+
+.worm-container
+  #worm-win= image_tag('worm-win.png')
+
+  #worm-text
+    %p You won #{@purchase.awarded_value} points
+
+  #worm-prize-text
+    - if current_user.points_for(@purchase.vendor) > @purchase.offer.value
+      %p And you have enough for the #{@purchase.offer.name}
+      %p= image_tag(@purchase.offer.image)
+      %p A voucher has been sent to your phone!
+
+  #worm-grass= image_tag('grass.png')
+
+  
+
+
 
 - if @next_vendor
   = link_to(@next_vendor, @next_vendor)
