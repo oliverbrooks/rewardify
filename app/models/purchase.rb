@@ -24,8 +24,7 @@ class Purchase < ActiveRecord::Base
   end
 
   def award_scaler
-  
-    percentage_win = case rand(1..100)
+    percentage_win = case rand(100)
     when 1..3
       0
     when 4..20
@@ -39,7 +38,6 @@ class Purchase < ActiveRecord::Base
     when 96..100 #jackpot!
       100
     end
-    
   end
 
   def winner?
