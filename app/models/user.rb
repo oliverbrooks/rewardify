@@ -14,8 +14,8 @@ class User < ActiveRecord::Base
   end
 
   def points_for(vendor)
-    played = purchases.where(played: true, vendor: vendor).sum(:awarded_value)
-    unplayed = purchases.where(played: false, vendor: vendor).sum(:value)
+    played = purchases.where(played: true, vendor_id: vendor.id).sum(:awarded_value)
+    unplayed = purchases.where(played: false, vendor_id: vendor.id).sum(:value)
 
     played + unplayed
   end

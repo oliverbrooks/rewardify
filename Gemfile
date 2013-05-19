@@ -23,7 +23,7 @@ gem "thin", ">= 1.5.0"
 
 # Database (Postgres)
 gem "pg", ">= 0.15.0"
-gem "sqlite3"
+# gem "sqlite3"
 
 # Authentication
 gem "devise", ">= 2.2.3"

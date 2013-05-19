@@ -10,9 +10,19 @@ class Purchase < ActiveRecord::Base
   delegate :phone, :points, to: :user
 
   before_create :generate_access_token
+  before_create :generate_awarded_points
 
   def generate_access_token
     self.access_token = SecureRandom.hex[0..10]
+  end
+
+  def generate_awarded_points
+    random number = rand(0..200).to_f / 100 * value
+    awarded_value = random_number.ceil
+  end
+
+  def winner?
+    self.offer.value < user.points_for(vendor)
   end
 
   def send_sms=(message)
