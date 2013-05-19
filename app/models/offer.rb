@@ -3,5 +3,5 @@ class Offer < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
-  validate :name, :description, :image, presence: true
+  validate :name, :description, :value, :image, presence: true
 end
