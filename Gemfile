@@ -23,7 +23,6 @@ gem "thin", ">= 1.5.0"
 
 # Database (Postgres)
 gem "pg", ">= 0.15.0"
-# gem "sqlite3"
 
 # Authentication
 gem "devise", ">= 2.2.3"
@@ -43,6 +42,7 @@ group :test do
 end
 
 group :development do
+  gem "sqlite3"
   gem "sextant"
   gem "quiet_assets", ">= 1.0.2"
   gem "better_errors", ">= 0.7.2"
