@@ -5,6 +5,8 @@ class Vendor < ActiveRecord::Base
   has_many :offers
   has_many :purchases
 
+  mount_uploader :logo, ImageUploader
+
   def to_s
     name
   end
