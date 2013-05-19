@@ -17,8 +17,26 @@ class Purchase < ActiveRecord::Base
   end
 
   def generate_awarded_points
-    random number = rand(0..200).to_f / 100 * value
-    awarded_value = random_number.ceil
+    # random number = rand(0..200).to_f / 100 * value
+    # awarded_value = random_number.ceil
+
+  
+    percentage_win = case rand(1..100)
+    when 1..5
+      0
+    when 6..20
+      10
+    when 21..50
+      50
+    when 70..95
+      70
+    when 96..100 #jackpot!
+      100
+    end
+
+    awarded_value = percentage_win / 100 * offer.value
+
+   
   end
 
   def winner?

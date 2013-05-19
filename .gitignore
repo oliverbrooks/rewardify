@@ -14,7 +14,7 @@
 /.bundle
 /vendor/bundle/
 /vendor/ruby/
-
+/public/uploads/*
 # minimal Rails specific artifacts
 db/*.sqlite3
 /log/*
@@ -26,6 +26,7 @@ db/*.sqlite3
 *.sassc
 .rspec
 .redcar/
+.ruby-version
 .sass-cache
 /config/config.yml
 /config/database.yml
