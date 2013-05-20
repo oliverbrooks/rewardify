@@ -1,5 +1,11 @@
 h1. Rewardify
 
+This app was built for the #transhack hack weekend. It was a little idea to make loyalty schemes more fun and engaging by sending an SMS to the customer offering a chance to win more loyalty points. A link in the SMS signs the into their loyalty account and lets them play a fun whack a mole game for the chance to double/triple their points.
+
+The customer can see how far they are from the special offer such as a free pizza or coffee. Each time they play they get closer!
+
+
+
 This application was generated with the "rails_apps_composer":https://github.com/RailsApps/rails_apps_composer gem provided by the "RailsApps Project":http://railsapps.github.io/.
 
 h2. Diagnostics
